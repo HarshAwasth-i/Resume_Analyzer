@@ -11,6 +11,7 @@ An AI-powered Resume Analyzer built using Python, Streamlit, and NLP techniques 
 - Missing Skills Detection
 - Skill Match Visualization
 - Interactive Dashboard UI
+- Helped in making Resume better
 
 ---
 
