@@ -84,7 +84,7 @@ if st.button("Analyze Resume"):
 
         st.success(f"ATS Score: {ats_score}%")
 
-        # Skills List
+        
         common_skills = [
             "Python",
             "Java",
@@ -146,5 +146,4 @@ if st.button("Analyze Resume"):
         st.pyplot(fig)
 
     else:
-
         st.error("Please upload a resume and paste a job description.")
