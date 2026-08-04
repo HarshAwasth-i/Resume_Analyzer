@@ -38,6 +38,7 @@ An AI-powered Resume Analyzer built using Python, Streamlit, and NLP techniques 
    - ATS Score
    - Missing Skills
    - Skill Analysis Chart
+   - 
 
 ---
 
