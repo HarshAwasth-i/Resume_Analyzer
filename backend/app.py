@@ -171,50 +171,6 @@ ACTION_VERBS = {
     "trained", "transformed", "upgraded"
 }
 
-# Sample job descriptions for instant user testing
-SAMPLE_JOBS = [
-    {
-        "id": "fullstack",
-        "title": "Full Stack Software Engineer",
-        "company": "TechCorp Global",
-        "description": """We are seeking a talented Full Stack Software Engineer to build scalable web applications.
-Key Requirements:
-- Strong experience with React, TypeScript, and modern JavaScript (ES6+).
-- Backend proficiency in Node.js, Express, or Python (Flask / FastAPI).
-- Experience designing REST APIs and working with PostgreSQL or MongoDB databases.
-- Familiarity with Docker, Git, CI/CD pipelines, and AWS cloud deployment.
-- Understanding of Unit Testing, System Design, and Agile/Scrum development methodologies.
-- Excellent communication and problem-solving skills."""
-    },
-    {
-        "id": "aiml",
-        "title": "AI / Machine Learning Engineer",
-        "company": "Cognitive AI Labs",
-        "description": """Looking for a passionate Machine Learning Engineer to design and deploy AI systems.
-Key Requirements:
-- Deep knowledge of Python, NumPy, Pandas, and Scikit-Learn.
-- Experience with Deep Learning frameworks: PyTorch or TensorFlow.
-- Hands-on NLP experience (Natural Language Processing, LLMs, Transformers, Hugging Face).
-- Knowledge of Data Analysis, Computer Vision, and model evaluation metrics.
-- Familiarity with Docker, Linux, Git, and cloud services (AWS or Azure).
-- Proven ability to write clean code, conduct unit testing, and collaborate effectively."""
-    },
-    {
-        "id": "devops",
-        "title": "Cloud & DevOps Engineer",
-        "company": "CloudScale Infrastructure",
-        "description": """Seeking a DevOps Engineer to automate and scale our multi-cloud infrastructure.
-Key Requirements:
-- Extensive experience with Docker, Kubernetes, Helm, and container orchestration.
-- Cloud expertise in AWS or Google Cloud (GCP).
-- Infrastructure as Code (IaC) using Terraform or Ansible.
-- Strong knowledge of CI/CD pipelines (Jenkins, GitHub Actions, GitLab CI).
-- Linux system administration, Bash/Shell scripting, and Python automation.
-- Experience monitoring with Prometheus, Grafana, and Nginx.
-- Strong teamwork, troubleshooting, and incident response skills."""
-    }
-]
-
 # -------------------------------------------------------------
 # Helper Functions: PDF, Text, and Skill Extraction
 # -------------------------------------------------------------
@@ -521,13 +477,8 @@ def home():
         "status": "online",
         "service": "AI Resume Analyzer API",
         "version": "2.0.0",
-        "endpoints": ["/upload", "/match", "/sample-data"]
+        "endpoints": ["/upload", "/match"]
     })
-
-@app.route('/sample-data', methods=['GET'])
-def get_sample_data():
-    """Returns sample job postings for 1-click testing."""
-    return jsonify({"jobs": SAMPLE_JOBS})
 
 @app.route('/upload', methods=['POST'])
 def upload_resume():
