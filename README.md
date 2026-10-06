@@ -1,96 +1,283 @@
-#  AI Resume Analyzer
+# 📄 AI Resume Analyzer
 
-An AI-powered Resume Analyzer built using Python, Streamlit, and NLP techniques to evaluate resumes against job descriptions.
+An AI-powered Resume Analyzer that evaluates how well a resume matches a given job description using Natural Language Processing (NLP) and Machine Learning techniques.
 
-
-##  Features
-
-- Resume PDF Upload
-- Job Description Matching
-- ATS Score Prediction
-- Missing Skills Detection
-- Skill Match Visualization
-- Interactive Dashboard UI
-- Helped in making Resume better
+The application extracts text from a resume, compares it with the provided job description, calculates a resume match score, generates an ATS-style score, identifies missing skills, and visualizes the skill match through an interactive dashboard.
 
 ---
 
-##  Tech Stack
+## 🚀 Features
 
+- 📄 **Resume PDF Upload**
+  - Upload a resume in PDF format.
+  - Automatically extracts resume text using `pdfplumber`.
+
+- 📝 **Job Description Matching**
+  - Paste a target job description.
+  - Compares the resume content against the requirements of the role.
+
+- 🎯 **Resume Match Score**
+  - Uses TF-IDF vectorization to represent resume and job description text.
+  - Calculates similarity using Cosine Similarity.
+  - Generates a percentage-based match score.
+
+- 🤖 **ATS Score**
+  - Generates an ATS-style score based on the resume match score.
+  - Helps provide a quick indication of resume-job alignment.
+
+- 🔍 **Missing Skills Detection**
+  - Checks important technical skills mentioned in the job description.
+  - Identifies skills that are present in the job description but missing from the resume.
+
+- 📊 **Skill Match Visualization**
+  - Visualizes matched and missing skills using a pie chart.
+  - Makes it easier to understand the resume's skill alignment.
+
+- 🎨 **Interactive Streamlit Dashboard**
+  - Clean and simple UI built with Streamlit.
+  - Provides resume analysis results in one place.
+
+---
+
+## 🛠️ Tech Stack
+
+### Programming Language
 - Python
+
+### Framework
 - Streamlit
+
+### Machine Learning / NLP
 - Scikit-learn
-- NLP
 - TF-IDF Vectorizer
 - Cosine Similarity
+
+### Data Visualization
 - Matplotlib
+
+### PDF Processing
 - pdfplumber
 
 ---
 
-##  Project Workflow
+## 🧠 How It Works
 
-1. Upload Resume PDF
-2. Paste Job Description
-3. Analyze Resume
-4. Generate:
-   - Match Score
-   - ATS Score
-   - Missing Skills
-   - Skill Analysis Chart
-   - 
+The application follows a simple NLP-based pipeline:
+
+```text
+Resume PDF
+    ↓
+Text Extraction
+    ↓
+Resume Text
+    ↓
+TF-IDF Vectorization
+    ↓
+Job Description ──────────┐
+                          ↓
+                 Cosine Similarity
+                          ↓
+                   Match Score
+                          ↓
+              ┌───────────┴───────────┐
+              ↓                       ↓
+        ATS-style Score        Missing Skills
+                                      ↓
+                              Skill Match Chart
+
+                              Skill Match Chart
+
+### 1. Resume Upload
+
+The user uploads their resume as a PDF file.
+
+The application extracts the text from the uploaded resume using `pdfplumber` and processes it for further analysis.
+
+### 2. Job Description Input
+
+The user provides the target job description in the application.
+
+The job description is used as the reference against which the resume is evaluated.
+
+### 3. Text Processing
+
+The extracted resume text and job description are processed and converted into numerical representations using **TF-IDF Vectorization**.
+
+### 4. Match Score Calculation
+
+The application calculates the similarity between the resume and job description using **Cosine Similarity**.
+
+The similarity value is converted into a percentage to generate the Resume Match Score.
+
+### 5. ATS Score
+
+An ATS-style score is generated based on the resume's alignment with the provided job description.
+
+This gives users a quick indication of how well their resume matches the target role.
+
+### 6. Missing Skills Detection
+
+The application checks the skills mentioned in the job description against the skills detected in the resume.
+
+Skills that appear in the job description but are not found in the resume are identified as missing skills.
+
+### 7. Skill Visualization
+
+The application visualizes the matched and missing skills using a pie chart, making the analysis easier to understand.
 
 ---
 
-##  Screenshots
+## 📊 Analysis Output
 
-### Home Page
-![Home Page](screenshots/home_page.png)
+After analyzing a resume, the application provides:
 
-### ATS Score & Analysis
-![ATS Score](screenshots/ats_score.png)
+- **Resume Match Score**
+- **ATS Score**
+- **Matched Skills**
+- **Missing Skills**
+- **Skill Match Visualization**
 
-### Missing Skills Detection
-![Missing Skills](screenshots/missing_skills.png)
-
-### Skill Match Chart
-![Skill Chart](screenshots/skill_chart.png)
+These results help users understand how closely their resume aligns with a specific job description and identify areas that can be improved.
 
 ---
 
-##  Installation
+## 📂 Project Structure
 
-Clone the repository:
+Resume_Analyzer/
+│
+├── backend/
+│   └── ...
+│
+├── frontend/
+│   └── ...
+│
+├── app.py
+├── jd_matcher.py
+├── requirements.txt
+├── .gitignore
+└── README.md
 
-```bash
-git clone https://github.com/HarshAwasth-i/Resume_Analyzer.git
-```
+### Important Files
 
-Install dependencies:
+**app.py**
 
-```bash
-pip install -r requirements.txt
-```
+Main Streamlit application responsible for the user interface and overall resume analysis workflow.
 
-Run the project:
+**jd_matcher.py**
 
-```bash
-streamlit run app.py
-```
+Contains the core logic for processing resume text, comparing it with the job description, and calculating similarity.
+
+**requirements.txt**
+
+Contains the Python dependencies required to run the project.
 
 ---
 
-##  Future Improvements
+## ⚙️ Installation
 
-- AI-based Resume Suggestions
-- Resume Ranking System
-- Multi-role Resume Analysis
-- Login Authentication
-- Cloud Deployment
-- Downloadable PDF Reports
+### 1. Clone the Repository
+
+    git clone https://github.com/HarshAwasth-i/Resume_Analyzer.git
+    cd Resume_Analyzer
+
+### 2. Create a Virtual Environment
+
+    python -m venv venv
+
+### 3. Activate the Virtual Environment
+
+**Windows**
+
+    venv\Scripts\activate
+
+**macOS / Linux**
+
+    source venv/bin/activate
+
+### 4. Install Dependencies
+
+    pip install -r requirements.txt
+
+### 5. Run the Application
+
+    streamlit run app.py
+
+The application will start locally and Streamlit will provide a URL where the application can be accessed.
 
 ---
 
-##  Author
+## 🧪 Usage
 
-Harsh Awasthi
+1. Launch the Streamlit application.
+2. Upload your resume in PDF format.
+3. Paste the target job description.
+4. Start the resume analysis.
+5. Review the Resume Match Score and ATS Score.
+6. Check the identified missing skills.
+7. Analyze the skill visualization.
+8. Use the results to improve your resume according to the target job.
+
+---
+
+## 🧠 Core Concepts
+
+### TF-IDF
+
+**Term Frequency-Inverse Document Frequency (TF-IDF)** is used to convert resume and job description text into numerical vectors.
+
+It assigns importance to words based on how frequently they appear in a document while reducing the importance of words that occur frequently across documents.
+
+### Cosine Similarity
+
+Cosine Similarity measures the similarity between the TF-IDF vectors of the resume and job description.
+
+The similarity value is converted into a percentage:
+
+**Match Score = Cosine Similarity × 100**
+
+A higher score indicates greater textual similarity between the resume and the job description.
+
+---
+
+## 🎯 Project Goals
+
+The main goal of this project is to demonstrate the practical application of **Natural Language Processing, Machine Learning, and data visualization** to a real-world recruitment problem.
+
+The application helps users:
+
+- Understand resume-job alignment
+- Identify potentially missing technical skills
+- Get an ATS-style resume score
+- Analyze resume compatibility with a target role
+- Identify areas where their resume can be improved
+- Understand the practical use of text similarity techniques
+
+---
+
+## 🔮 Future Improvements
+
+- AI-powered resume improvement suggestions
+- Advanced NLP-based skill extraction
+- Support for DOCX resumes
+- Resume analysis for multiple job roles
+- Resume ranking system
+- More detailed resume analytics
+- Downloadable analysis reports
+- Expanded technical skill database
+- User authentication
+- Improved cloud deployment
+- More advanced ATS scoring methodology
+
+---
+
+## 👨‍💻 Author
+
+**Harsh Awasthi**
+
+B.Tech Computer Science Student | Software Development & Machine Learning
+
+---
+
+## ⭐ Support
+
+If you found this project useful or interesting, consider giving the repository a ⭐ on GitHub.
