@@ -2,7 +2,7 @@
 
 An AI-powered Resume Analyzer that evaluates how well a resume matches a given job description using Natural Language Processing (NLP) and Machine Learning techniques.
 
-The application extracts text from a resume, compares it with the provided job description, calculates a resume match score, generates an ATS-style score, identifies missing skills, and visualizes the skill match through an interactive dashboard.
+The application extracts text from a resume, compares it with the provided job description, calculates a resume match score, generates an ATS-style score, identifies missing skills, and visualizes the skill match through an interactive Streamlit dashboard.
 
 ---
 
@@ -22,20 +22,20 @@ The application extracts text from a resume, compares it with the provided job d
   - Generates a percentage-based match score.
 
 - 🤖 **ATS Score**
-  - Generates an ATS-style score based on the resume match score.
-  - Helps provide a quick indication of resume-job alignment.
+  - Generates an ATS-style score based on resume-job alignment.
+  - Provides a quick indication of how well the resume matches the target role.
 
 - 🔍 **Missing Skills Detection**
-  - Checks important technical skills mentioned in the job description.
-  - Identifies skills that are present in the job description but missing from the resume.
+  - Identifies important technical skills mentioned in the job description.
+  - Highlights skills that are required but missing from the resume.
 
 - 📊 **Skill Match Visualization**
-  - Visualizes matched and missing skills using a pie chart.
-  - Makes it easier to understand the resume's skill alignment.
+  - Visualizes matched and missing skills using charts.
+  - Makes it easier to understand resume-job alignment.
 
 - 🎨 **Interactive Streamlit Dashboard**
-  - Clean and simple UI built with Streamlit.
-  - Provides resume analysis results in one place.
+  - Clean and interactive user interface.
+  - Displays all analysis results in one place.
 
 ---
 
@@ -49,7 +49,7 @@ The application extracts text from a resume, compares it with the provided job d
 
 ### Machine Learning / NLP
 - Scikit-learn
-- TF-IDF Vectorizer
+- TF-IDF Vectorization
 - Cosine Similarity
 
 ### Data Visualization
@@ -62,48 +62,41 @@ The application extracts text from a resume, compares it with the provided job d
 
 ## 🧠 How It Works
 
-The application follows a simple NLP-based pipeline:
+The application follows a simple NLP-based resume analysis pipeline:
 
-```text
-Resume PDF
-    ↓
-Text Extraction
-    ↓
-Resume Text
-    ↓
-TF-IDF Vectorization
-    ↓
-Job Description ──────────┐
-                          ↓
-                 Cosine Similarity
-                          ↓
-                   Match Score
-                          ↓
-              ┌───────────┴───────────┐
-              ↓                       ↓
-        ATS-style Score        Missing Skills
-                                      ↓
-                              Skill Match Chart
-
-                              Skill Match Chart
+Resume PDF  
+↓  
+Text Extraction  
+↓  
+Resume Text  
+↓  
+TF-IDF Vectorization  
+↓  
+Job Description  
+↓  
+Cosine Similarity  
+↓  
+Resume Match Score  
+↓  
+ATS Score + Missing Skills + Skill Visualization
 
 ### 1. Resume Upload
 
-The user uploads their resume as a PDF file.
+The user uploads their resume in PDF format.
 
-The application extracts the text from the uploaded resume using `pdfplumber` and processes it for further analysis.
+The application extracts the text from the uploaded PDF using `pdfplumber`.
 
 ### 2. Job Description Input
 
-The user provides the target job description in the application.
+The user provides the target job description.
 
-The job description is used as the reference against which the resume is evaluated.
+The job description acts as the reference against which the resume is evaluated.
 
 ### 3. Text Processing
 
 The extracted resume text and job description are processed and converted into numerical representations using **TF-IDF Vectorization**.
 
-### 4. Match Score Calculation
+### 4. Resume Match Score
 
 The application calculates the similarity between the resume and job description using **Cosine Similarity**.
 
@@ -113,7 +106,7 @@ The similarity value is converted into a percentage to generate the Resume Match
 
 An ATS-style score is generated based on the resume's alignment with the provided job description.
 
-This gives users a quick indication of how well their resume matches the target role.
+This provides users with a quick indication of how closely their resume matches the target role.
 
 ### 6. Missing Skills Detection
 
@@ -123,7 +116,7 @@ Skills that appear in the job description but are not found in the resume are id
 
 ### 7. Skill Visualization
 
-The application visualizes the matched and missing skills using a pie chart, making the analysis easier to understand.
+The application visualizes the skill analysis using charts, making it easier for users to understand their matched and missing skills.
 
 ---
 
@@ -137,25 +130,25 @@ After analyzing a resume, the application provides:
 - **Missing Skills**
 - **Skill Match Visualization**
 
-These results help users understand how closely their resume aligns with a specific job description and identify areas that can be improved.
+These results help users understand how closely their resume aligns with a specific job description and identify areas where their resume can be improved.
 
 ---
 
 ## 📂 Project Structure
 
-Resume_Analyzer/
-│
-├── backend/
-│   └── ...
-│
-├── frontend/
-│   └── ...
-│
-├── app.py
-├── jd_matcher.py
-├── requirements.txt
-├── .gitignore
-└── README.md
+    Resume_Analyzer/
+    │
+    ├── backend/
+    │   └── ...
+    │
+    ├── frontend/
+    │   └── ...
+    │
+    ├── app.py
+    ├── jd_matcher.py
+    ├── requirements.txt
+    ├── .gitignore
+    └── README.md
 
 ### Important Files
 
@@ -169,7 +162,7 @@ Contains the core logic for processing resume text, comparing it with the job de
 
 **requirements.txt**
 
-Contains the Python dependencies required to run the project.
+Contains the Python dependencies required to run the application.
 
 ---
 
@@ -225,7 +218,7 @@ The application will start locally and Streamlit will provide a URL where the ap
 
 **Term Frequency-Inverse Document Frequency (TF-IDF)** is used to convert resume and job description text into numerical vectors.
 
-It assigns importance to words based on how frequently they appear in a document while reducing the importance of words that occur frequently across documents.
+It assigns importance to words based on their frequency within a document while reducing the importance of words that occur frequently across documents.
 
 ### Cosine Similarity
 
@@ -236,6 +229,12 @@ The similarity value is converted into a percentage:
 **Match Score = Cosine Similarity × 100**
 
 A higher score indicates greater textual similarity between the resume and the job description.
+
+### ATS
+
+An **Applicant Tracking System (ATS)** is software commonly used by recruiters to filter and organize job applications.
+
+This project provides an ATS-style score to give users an additional indication of how well their resume aligns with a target job description.
 
 ---
 
@@ -256,17 +255,17 @@ The application helps users:
 
 ## 🔮 Future Improvements
 
-- AI-powered resume improvement suggestions
-- Advanced NLP-based skill extraction
-- Support for DOCX resumes
-- Resume analysis for multiple job roles
-- Resume ranking system
-- More detailed resume analytics
-- Downloadable analysis reports
-- Expanded technical skill database
-- User authentication
-- Improved cloud deployment
-- More advanced ATS scoring methodology
+- 🤖 AI-powered resume improvement suggestions
+- 🧠 Advanced NLP-based skill extraction
+- 📄 Support for DOCX resumes
+- 🎯 Resume analysis for multiple job roles
+- 🏆 Resume ranking system
+- 📊 More detailed resume analytics
+- 📥 Downloadable analysis reports
+- 📚 Expanded technical skill database
+- 🔐 User authentication
+- ☁️ Improved cloud deployment
+- ✨ More advanced ATS scoring methodology
 
 ---
 
