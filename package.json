@@ -1,0 +1,12 @@
+{
+  "name": "resume-analyzer",
+  "version": "2.0.0",
+  "description": "AI Resume Analyzer - Next-Gen ATS & Semantic Resume Intelligence",
+  "scripts": {
+    "start": "npm start --prefix frontend",
+    "build": "npm run build --prefix frontend",
+    "test": "npm test --prefix frontend"
+  },
+  "author": "Harsh Awasthi",
+  "license": "ISC"
+}
